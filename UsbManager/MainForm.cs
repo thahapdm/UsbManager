@@ -685,7 +685,15 @@ private List<string> GetDiffOfSubfolders(string source, string dest)
         {
 
             PnlLeft.Controls.Clear();
-            driveContent = ObjDriveOP.GetSubDirectoryFiles(LeftDriveContent);
+            if (RightDriveContent.Name == "My Computer")
+            {
+                driveContent = RightDriveContent;
+            }
+
+            else
+            {
+                driveContent = ObjDriveOP.GetSubDirectoryFiles(RightDriveContent);
+            }
             PostFolders(driveContent, PnlLeft);
             LeftDriveContent = driveContent;
 
@@ -694,7 +702,15 @@ private List<string> GetDiffOfSubfolders(string source, string dest)
         private void btnRightRefresh_Click(object sender, EventArgs e)
         {
             pnlRight.Controls.Clear();
-            driveContent = ObjDriveOP.GetSubDirectoryFiles(RightDriveContent);
+            if (RightDriveContent.Name == "My Computer")
+            {
+                driveContent = RightDriveContent;
+            }
+
+            else
+            {
+                driveContent = ObjDriveOP.GetSubDirectoryFiles(RightDriveContent);
+            }
             PostFolders(driveContent, pnlRight);
             RightDriveContent = driveContent;
 
